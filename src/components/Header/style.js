@@ -15,7 +15,7 @@ export const TitleHeader = styled.h1`
 
 
     @media (max-width: 768px) {
-        font-size: 18px;
+        font-size: 35px;
         width: 97%;
         line-height: 40px;
         padding: 3rem 0;
