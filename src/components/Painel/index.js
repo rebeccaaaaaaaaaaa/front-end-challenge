@@ -11,8 +11,8 @@ function Painel(props){
         <Container>
           <Row>
             {props.movies.map((movie) => (
-              <Col xs={6} md={4} lg={3}>
-                <Card key={movie.id} className="my-3">
+              <Col xs={6} md={4} lg={3} key={movie.id} >
+                <Card className="my-3">
                   <Card.Img variant="top" 
                         src={
                           `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -24,6 +24,8 @@ function Painel(props){
                   </Card.Body>
                 </Card>
               </Col>
+              
+
             ))}
           </Row>
         </Container>
