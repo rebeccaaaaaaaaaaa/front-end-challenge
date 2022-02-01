@@ -38,7 +38,7 @@ class App extends Component {
           <Header />
           <Filter />
           <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-          <Painel />
+          <Painel movies={this.state.movies}/>
         </main>
       </>
     );

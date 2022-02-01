@@ -6,7 +6,7 @@ export const HeaderLogo = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
 `;
