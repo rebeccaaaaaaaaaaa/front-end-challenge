@@ -3,7 +3,8 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {PainelArea} from './style';
+import {PainelArea, DetailsLink} from './style';
+import Moment from 'react-moment';
 
 function Painel(props){
     return (
@@ -19,8 +20,12 @@ function Painel(props){
                         } alt="" />
                   <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
-                    <Card.Text>{movie.release_date}</Card.Text>
-                    <a href=""> Ver detalhes </a>
+                   
+                      <Moment format="D MMM YYYY" withTitle>
+                        {movie.release_date}
+                       </Moment>
+                   
+                      <DetailsLink href=""> Ver detalhes </DetailsLink>
                   </Card.Body>
                 </Card>
               </Col>
