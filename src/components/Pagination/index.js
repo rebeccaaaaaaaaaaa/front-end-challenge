@@ -17,19 +17,25 @@ function Pagination(props){
 
     return(
         <PaginationArea aria-label="pagination">
-            <ul className="pagination">
-              {props.currentPage > 1 ? 
-                <li className="page-item">
-                    <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage - 1)}> Próximo </a> 
-                </li> : ''}
+            <div className="container">
+                <div className="row">
+                   <div className="col-lg-12">
+                   <ul className="pagination">
+                    {props.currentPage > 1 ? 
+                        <li className="page-item">
+                            <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage - 1)}> Próximo </a> 
+                        </li> : ''}
 
-              {pageLinks}
+                    {pageLinks}
 
-              {props.currentPage < props.pages + 1 ? 
-                <li className="page-item">
-                    <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage + 1)}> Anterior </a>
-                </li> : ''}
-            </ul>
+                    {props.currentPage < props.pages + 1 ? 
+                        <li className="page-item">
+                            <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage + 1)}> Anterior </a>
+                        </li> : ''}
+                    </ul>
+                   </div>
+                </div>
+            </div>
         </PaginationArea>
     );
 }

@@ -12,7 +12,7 @@ function Painel(props){
         <Container>
           <Row>
             {props.movies.map((movie) => (
-              <Col xs={6} md={4} lg={3} key={movie.id} >
+              <Col xs={6} md={4} lg={3} key={movie.id} viewMovieDetails={props.viewMovieDetails}>
                 <Card className="my-3">
                   <Card.Img variant="top" 
                         src={
@@ -25,7 +25,7 @@ function Painel(props){
                         {movie.release_date}
                        </Moment>
                    
-                      <DetailsLink href=""> Ver detalhes </DetailsLink>
+                      <DetailsLink href="" onClick={() => props.viewMovieDetails(props.id)} > Ver detalhes </DetailsLink>
                   </Card.Body>
                 </Card>
               </Col>

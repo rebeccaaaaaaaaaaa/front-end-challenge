@@ -5,6 +5,7 @@ import Filter from "./components/Filters";
 import Painel from "./components/Painel";
 import Search from "./components/Search";
 import Pagination from "./components/Pagination";
+import MovieDetails from "./components/MovieDetails";
 
 import './App.css';
 
@@ -15,7 +16,8 @@ class App extends Component {
       movies: [],
       searchMovie: "",
       totalMovies: 0,
-      currentPage: 1
+      currentPage: 1,
+      currentMovie: null
     };
     this.apiKey = process.env.REACT_APP_API_KEY;
 
@@ -44,6 +46,18 @@ class App extends Component {
     });
   }
 
+  viewMovieDetails = (id) => {
+    const filteredMovie = this.state.movies.filter(movie => movie.id === id);
+
+    const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null;
+    this.setState({currentMovie: filteredMovie});
+    
+  }
+
+  closeMovieDetails = () => {
+    this.setState({currentMovie: null});
+  }
+
   render() {
     const numberPages = Math.floor(this.state.totalMovies / 5);
 
@@ -53,8 +67,15 @@ class App extends Component {
         <main>
           <Header />
           <Filter />
-          <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-          <Painel movies={this.state.movies}/>
+          { this.state.currentMovie === null ? <>
+              <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+              <Painel viewMovieDetails={this.viewMovieDetails}  movies={this.state.movies}/>
+            </>
+            : 
+              <MovieDetails closeMovieDetails={this.closeMovieDetails} currentMovie={this.state.currentMovie} />
+            } 
+          
+         
           {
             this.state.totalMovies > 5 ? 
             <Pagination pages={numberPages} nextPage={this.state.nextPage}  currentPage={this.state.currentPage}/> : null
