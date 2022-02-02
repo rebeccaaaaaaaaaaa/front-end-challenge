@@ -8,4 +8,9 @@ export const IconButton = styled(FaSearch)`
 
 export const SearchArea = styled.section`
     padding: 20px 0;
+
+    &:focus {
+        outline: none;
+        
+    }
 `;

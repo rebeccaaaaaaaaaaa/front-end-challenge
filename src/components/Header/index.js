@@ -1,6 +1,7 @@
 import React from 'react';
 import {TitleHeader, TitleHeaderSection} from './style';
 
+
 function Header (){
     return( 
       <TitleHeaderSection>

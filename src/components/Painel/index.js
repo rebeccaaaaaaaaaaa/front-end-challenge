@@ -11,26 +11,38 @@ function Painel(props){
       <PainelArea>
         <Container>
           <Row>
-            {props.movies.map((movie) => (
-              <Col xs={6} md={4} lg={3} key={movie.id} viewMovieDetails={props.viewMovieDetails}>
+            {props.movies.map((movie, i) => (
+              <Col
+                xs={6}
+                md={4}
+                lg={3}
+                key={i}
+                moveId={movie.id}
+                viewMovieDetails={props.viewMovieDetails}
+              >
                 <Card className="my-3">
-                  <Card.Img variant="top" 
-                        src={
-                          `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                        } alt="" />
+                  <Card.Img
+                    variant="top"
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.name}
+                  />
                   <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
-                   
-                      <Moment format="D MMM YYYY" withTitle>
-                        {movie.release_date}
-                       </Moment>
-                   
-                      <DetailsLink href="" onClick={() => props.viewMovieDetails(props.id)} > Ver detalhes </DetailsLink>
+
+                    <Moment format="D MMM YYYY" withTitle>
+                      {movie.release_date}
+                    </Moment>
+
+                    <DetailsLink
+                      href=""
+                      onClick={() => props.viewMovieDetails(props.moveId)}
+                    >
+                      {" "}
+                      Ver detalhes{" "}
+                    </DetailsLink>
                   </Card.Body>
                 </Card>
               </Col>
-              
-
             ))}
           </Row>
         </Container>

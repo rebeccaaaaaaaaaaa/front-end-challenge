@@ -6,5 +6,7 @@ export const PainelArea = styled.section`
 
 export const DetailsLink = styled.a`
     display: block;
+    text-decoration: none;
+    
     
 `;

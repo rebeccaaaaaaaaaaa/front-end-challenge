@@ -29,7 +29,7 @@ class App extends Component {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      this.setState({movies: [...data.results], totalMovies: data.total_results})
+      this.setState({movies: [...data.results], totalMovies: data.total_results});
     });
   }
 
@@ -47,10 +47,11 @@ class App extends Component {
   }
 
   viewMovieDetails = (id) => {
-    const filteredMovie = this.state.movies.filter(movie => movie.id === id);
 
-    const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null;
-    this.setState({currentMovie: filteredMovie});
+    const filteredMovie = this.state.movies.filter(movie => movie.id === id)
+    const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
+    this.setState({currentMovie: newCurrentMovie})
+    console.log(newCurrentMovie)
     
   }
 
@@ -59,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-    const numberPages = Math.floor(this.state.totalMovies / 5);
+    const numberPages = Math.floor(this.state.totalMovies / 20);
 
     return (
       <>
@@ -67,9 +68,10 @@ class App extends Component {
         <main>
           <Header />
           <Filter />
-          { this.state.currentMovie === null ? <>
+          { this.state.currentMovie === null ? 
+           <>
               <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-              <Painel viewMovieDetails={this.viewMovieDetails}  movies={this.state.movies}/>
+              <Painel movies={this.state.movies} viewMovieDetails={this.viewMovieDetails} />
             </>
             : 
               <MovieDetails closeMovieDetails={this.closeMovieDetails} currentMovie={this.state.currentMovie} />
@@ -77,8 +79,8 @@ class App extends Component {
           
          
           {
-            this.state.totalMovies > 5 ? 
-            <Pagination pages={numberPages} nextPage={this.state.nextPage}  currentPage={this.state.currentPage}/> : null
+            this.state.totalMovies > 20 && this.state.currentMovie == null ?
+            <Pagination pages={numberPages} nextPage={this.nextPage}  currentPage={this.state.currentPage}/> : ''
           }
         </main>
       </>
