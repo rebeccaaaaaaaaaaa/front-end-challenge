@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const SectionArea = styled.section`
+    ul{
+        list-style: none;
+        padding: 0;
+        
+    }
+`;
+
 export const DetailsTitle = styled.h1`
     font-size: 2.5rem;
     font-weight: bold;
