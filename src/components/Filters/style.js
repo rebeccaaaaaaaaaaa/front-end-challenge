@@ -26,7 +26,7 @@ export const FilterArea = styled.section`
     padding: 25px;
     position: relative;
     top: -8px;
-    height: 130px;
+    height: 190px;
 
     @media (max-width: 768px) {
         

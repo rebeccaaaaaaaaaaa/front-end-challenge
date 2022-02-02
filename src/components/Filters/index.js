@@ -8,14 +8,14 @@ function Filter(props) {
       <FilterArea>
         <Container>
           <FilterSectionFilters>
-            <FilterSectionTitle>FILTRE POR:</FilterSectionTitle>
+            <button style={{marginRight: '15px'}} className="btn btn-primary" onClick={props.popularMovies}> OS MAIS POPULARES </button>
+            <FilterSectionTitle> OU </FilterSectionTitle>
             <DropdownArea>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 ESCOLHA UM GÊNERO
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item onClick={props.popularMovies}> Populares </Dropdown.Item>
                 <Dropdown.Item > Ação </Dropdown.Item>
                 <Dropdown.Item > Aventura </Dropdown.Item>
                 <Dropdown.Item > Comédia </Dropdown.Item>
