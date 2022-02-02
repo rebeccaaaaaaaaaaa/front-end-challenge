@@ -7,6 +7,8 @@ import {PainelArea, DetailsLink} from './style';
 import Moment from 'react-moment';
 
 function Painel(props){
+
+  
     return (
       <PainelArea>
         <Container>
@@ -16,8 +18,7 @@ function Painel(props){
                 xs={6}
                 md={4}
                 lg={3}
-                key={i}
-                moveId={movie.id}
+                key={movie.id}
                 viewMovieDetails={props.viewMovieDetails}
               >
                 <Card className="my-3">
@@ -34,11 +35,9 @@ function Painel(props){
                     </Moment>
 
                     <DetailsLink
-                      href=""
-                      onClick={() => props.viewMovieDetails(props.moveId)}
+                      onClick={() => props.viewMovieDetails(movie.id)}
                     >
-                      {" "}
-                      Ver detalhes{" "}
+                      Ver detalhes
                     </DetailsLink>
                   </Card.Body>
                 </Card>

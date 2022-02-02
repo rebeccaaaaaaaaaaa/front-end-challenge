@@ -4,9 +4,9 @@ export const PainelArea = styled.section`
     padding: 20px 0;
 `;
 
-export const DetailsLink = styled.a`
+export const DetailsLink = styled.span`
     display: block;
-    text-decoration: none;
-    
-    
+    color: #0d6efd;
+    margin-top: 10px;
+    cursor: pointer;
 `;

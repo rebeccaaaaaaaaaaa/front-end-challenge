@@ -20,17 +20,17 @@ function Pagination(props){
             <div className="container">
                 <div className="row">
                    <div className="col-lg-12">
-                   <ul className="pagination">
+                   <ul className="pagination flex-wrap">
                     {props.currentPage > 1 ? 
                         <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage - 1)}> Próximo </a> 
+                            <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage - 1)}> Anterior </a> 
                         </li> : ''}
 
                     {pageLinks}
 
                     {props.currentPage < props.pages + 1 ? 
                         <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage + 1)}> Anterior </a>
+                            <a className="page-link" href="#" onClick={() => props.nextPage(props.currentPage + 1)}> Próximo </a>
                         </li> : ''}
                     </ul>
                    </div>
