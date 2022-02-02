@@ -11,18 +11,18 @@ function Filter(props) {
             <button style={{marginRight: '15px'}} className="btn btn-primary" onClick={props.popularMovies}> OS MAIS POPULARES </button>
             <FilterSectionTitle> OU </FilterSectionTitle>
             <DropdownArea>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="success" id="dropdown-basic" >
                 ESCOLHA UM GÊNERO
               </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item > Ação </Dropdown.Item>
-                <Dropdown.Item > Aventura </Dropdown.Item>
-                <Dropdown.Item > Comédia </Dropdown.Item>
-                <Dropdown.Item > Drama </Dropdown.Item>
-                <Dropdown.Item > Ficção Científica </Dropdown.Item>
-                <Dropdown.Item > Suspense </Dropdown.Item>
-                
+              <Dropdown.Menu >
+                {
+                  props.genres.map((genre, i) => (
+                    <Dropdown.Item key={genre.id} onClick={() => props.genderMovies(genre.id)}>
+                      {genre.name}
+                      {console.log(genre.name)}
+                    </Dropdown.Item>
+                  ))
+                }
               </Dropdown.Menu>
             </DropdownArea>
           </FilterSectionFilters>

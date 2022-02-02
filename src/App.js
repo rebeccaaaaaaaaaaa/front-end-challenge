@@ -14,6 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       movies: [],
+      genres: [],
       searchMovie: "",
       totalMovies: 0,
       currentPage: 1,
@@ -73,6 +74,17 @@ class App extends Component {
     });
   }
 
+  genderMovies = (e) => {
+      e.preventDefault();
+     fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=pt-BR`)
+     .then(response => response.json())
+     .then(data => {
+        console.log(data);
+        this.setState({genres: [...data.results]});
+      });
+  }
+
+
 
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
@@ -89,7 +101,7 @@ class App extends Component {
         <Navbar />
         <main>
           <Header />
-          <Filter popularMovies={this.popularMovies} />
+          <Filter popularMovies={this.popularMovies}  genres={this.state.genres} genderMovies={this.genderMovies}/>
           
           { this.state.currentMovie === null ? 
              // verificação se o filme atual é nulo se for mostra o search, pagination e painel, se n for nulo quer
