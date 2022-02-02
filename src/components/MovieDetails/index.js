@@ -1,6 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
-import {SectionArea} from './style';
+import {SectionArea, DetaisList, DetaisAverageArea} from './style';
 import { FaArrowLeft } from "react-icons/fa";
 
 
@@ -17,17 +17,16 @@ function MovieDetails(props) {
               <h1> {props.currentMovie.title} </h1>
             </div>
             <div className="details-more">
-              <ul>
+              <DetaisList>
                 <li>
-                  Data de lançamento: 
+                 
                   <Moment format="D MMM YYYY" withTitle>
                      {props.currentMovie.release_date}
                   </Moment>
                 </li>
-                <li> Classificação: {props.currentMovie.vote_average} </li>
-                <li> Duração: {props.currentMovie.popularity} </li>
-                <li> Idioma original: {props.currentMovie.original_language} </li>
-              </ul>
+                <li> {props.currentMovie.popularity} </li>
+                <li> {props.currentMovie.original_language} </li>
+              </DetaisList>
             </div>
             <div className="details-description">
               <p>
@@ -35,6 +34,9 @@ function MovieDetails(props) {
                   props.currentMovie.overview
                 }
               </p>
+              <DetaisAverageArea>
+                <span> {props.currentMovie.vote_average} </span>
+              </DetaisAverageArea>
             </div>
           </div>
 
