@@ -12,7 +12,7 @@ function MovieDetails(props) {
           <div className="col-lg-12 pb-5">
             <FaArrowLeft onClick={props.closeMovieDetails} style={{cursor:'pointer'}}/>
           </div>
-          <div className="offset-1 col-lg-6">
+          <div className="col-lg-6 col-sm-6">
             <div className="details-title">
               <h1> {props.currentMovie.title} </h1>
             </div>
@@ -38,7 +38,7 @@ function MovieDetails(props) {
             </div>
           </div>
 
-          <div className="col-lg-5">
+          <div className="col-lg-5 col-sm-6">
             <img src={`https://image.tmdb.org/t/p/w500${props.currentMovie.poster_path}`} alt={props.currentMovie.name} className="img-fluid" width="300"/>
           </div>
 

@@ -62,7 +62,18 @@ class App extends Component {
     
   }
 
-  
+  popularMovies = (e) => {
+    e.preventDefault();
+    //fetch(`https://api.themoviedb.org/3/search/movie/popular?api_key=${this.apiKey}&language=pt-BR&query=${this.state.searchMovie}&page=1&include_adult=false`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=pt-BR&page=1`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      this.setState({movies: [...data.results]});
+    });
+  }
+
+
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
   // setando como nulo significa que é para mostrar o painel - lista de filmes
@@ -78,7 +89,7 @@ class App extends Component {
         <Navbar />
         <main>
           <Header />
-          <Filter />
+          <Filter popularMovies={this.popularMovies} />
           
           { this.state.currentMovie === null ? 
              // verificação se o filme atual é nulo se for mostra o search, pagination e painel, se n for nulo quer
@@ -86,11 +97,6 @@ class App extends Component {
 
            <>
               <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-              {
-                // paginação em cima da listagem dos filter
-              this.state.totalMovies > 400 && this.state.currentMovie == null ?
-              <Pagination pages={numberPages} nextPage={this.nextPage}  currentPage={this.state.currentPage}/> : ''
-             }
               <Painel movies={this.state.movies} viewMovieDetails={this.viewMovieDetails} />
             </>
             : 

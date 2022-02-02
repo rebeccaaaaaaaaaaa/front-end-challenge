@@ -3,7 +3,7 @@ import {FilterArea, FilterSectionTitle, FilterSectionFilters, DropdownArea} from
 import Container from 'react-bootstrap/Container';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function Filter() {
+function Filter(props) {
     return (
       <FilterArea>
         <Container>
@@ -15,7 +15,7 @@ function Filter() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item > Populares </Dropdown.Item>
+                <Dropdown.Item onClick={props.popularMovies}> Populares </Dropdown.Item>
                 <Dropdown.Item > Ação </Dropdown.Item>
                 <Dropdown.Item > Aventura </Dropdown.Item>
                 <Dropdown.Item > Comédia </Dropdown.Item>
