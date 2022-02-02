@@ -2,7 +2,7 @@ import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Container from 'react-bootstrap/Container';
-import {SearchArea, IconButton} from './style';
+import {SearchArea} from './style';
 
 
 function Search(props) {
@@ -17,7 +17,6 @@ function Search(props) {
                 aria-describedby="movie-search"
                 onChange={props.handleChange}
             />
-            <InputGroup.Text id="basic-addon1"><IconButton/></InputGroup.Text>
             </InputGroup>
         </form>
       </Container>

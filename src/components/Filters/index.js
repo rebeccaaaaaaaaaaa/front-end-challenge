@@ -15,6 +15,7 @@ function Filter() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
+                <Dropdown.Item > Populares </Dropdown.Item>
                 <Dropdown.Item > Ação </Dropdown.Item>
                 <Dropdown.Item > Aventura </Dropdown.Item>
                 <Dropdown.Item > Comédia </Dropdown.Item>
