@@ -6,6 +6,10 @@ export const SectionArea = styled.section`
     margin-top: -10px;
     color: #fff;
 
+    @media (max-width: 768px) {
+        height: auto;
+    }
+
     ul{
         list-style: none;
         padding: 0;
@@ -36,7 +40,6 @@ export const DetaisList = styled.ul`
 `;
 
 export const DetaisAverageArea = styled.div`
-    margin-top: 2rem;
 
     span{
         background: #1a8209;

@@ -11,7 +11,7 @@ function Painel(props){
         <div className="container">
           <div className="row">
             {props.movies.map((movie, i) => (
-              <div className="col-lg-2 col-md-3 col-sm-6 col-xs-6" 
+              <div className="col-6 col-lg-2 col-md-4" 
                 key={movie.id}
                 viewMovieDetails={props.viewMovieDetails}
               >

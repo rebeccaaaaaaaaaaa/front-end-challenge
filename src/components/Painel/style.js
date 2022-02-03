@@ -9,7 +9,15 @@ export const PainelArea = styled.section`
 
 export const DetailsLink = styled.span`
     display: block;
-    color: #0d6efd;
+    color: #fff;
     margin-top: 10px;
     cursor: pointer;
+    background: #5c16c5;
+    padding: 10px;
+    border-radius: 5px; 
+    transition: all .3s ease-in-out;
+
+    &:hover{
+        background: #2D0C5E;
+    }
 `;

@@ -63,7 +63,7 @@ class App extends Component {
     
   }
 
-  popularMovies = (e) => {
+popularMovies = (e) => {
     e.preventDefault();
     //fetch(`https://api.themoviedb.org/3/search/movie/popular?api_key=${this.apiKey}&language=pt-BR&query=${this.state.searchMovie}&page=1&include_adult=false`)
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=pt-BR&page=1`)
@@ -73,19 +73,6 @@ class App extends Component {
       this.setState({movies: [...data.results]});
     });
   }
-
-  genderMovies = (e) => {
-      e.preventDefault();
-     fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=pt-BR`)
-     .then(response => response.json())
-     .then(data => {
-        console.log(data);
-        this.setState({genres: [...data.results]});
-      });
-  }
-
-
-
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
   // setando como nulo significa que é para mostrar o painel - lista de filmes
@@ -101,7 +88,7 @@ class App extends Component {
         <Navbar />
         <main>
           <Header />
-          <Filter popularMovies={this.popularMovies}  genres={this.state.genres} genderMovies={this.genderMovies}/>
+          <Filter popularMovies={this.popularMovies}/>
           
           { this.state.currentMovie === null ? 
              // verificação se o filme atual é nulo se for mostra o search, pagination e painel, se n for nulo quer
