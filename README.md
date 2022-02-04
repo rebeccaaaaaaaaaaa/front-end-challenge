@@ -2,7 +2,7 @@
 
 # Visão Geral
 
-- Esse é um teste desenvolvido para a vaga de frontend da POMOBIT.
+- Esse é um teste desenvolvido para a vaga de frontend da PROMOBIT.
 - O objetivo era criar uma aplicação que permitisse listar filmes utilizando uma API externa para listar os filmes mais populares. 
 - Resolvi criar uma forma do usuário poder pesquisar o filme por nome também.
 
