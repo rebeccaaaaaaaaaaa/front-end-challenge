@@ -76,13 +76,15 @@ popularMovies = (e) => {
 
   shoMoviesGenres = (e) => {
     e.preventDefault();
-    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=pt-BR`)
+    console.log(e.target.genres);
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&with_genres=878`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      this.setState({genres: [...data.genres]});
+      this.setState({movies: [...data.results]});
     });
-  }
+   
+} 
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
   // setando como nulo significa que é para mostrar o painel - lista de filmes
@@ -91,14 +93,17 @@ popularMovies = (e) => {
   }
 
   render() {
-    const numberPages = Math.floor(this.state.totalMovies / 400);
+    const numberPages = Math.floor(this.state.totalMovies / 20);
 
     return (
       <>
         <Navbar />
         <main>
           <Header />
-          <Filter popularMovies={this.popularMovies} listGenresMovies={this.listGenresMovies}/>
+          <Filter popularMovies={this.popularMovies} 
+                  shoMoviesGenres={this.shoMoviesGenres}
+                  movies={this.state.movies} 
+                  viewMovieDetails={this.viewMovieDetails}/>
           
           { this.state.currentMovie === null ? 
              // verificação se o filme atual é nulo se for mostra o search, pagination e painel, se n for nulo quer
@@ -115,7 +120,7 @@ popularMovies = (e) => {
          
           {
              // paginação em baixo da listagem dos filter
-            this.state.totalMovies > 400 && this.state.currentMovie == null ?
+            this.state.totalMovies > 20 && this.state.currentMovie == null ?
             <Pagination pages={numberPages} nextPage={this.nextPage}  currentPage={this.state.currentPage}/> : ''
           }
         </main>

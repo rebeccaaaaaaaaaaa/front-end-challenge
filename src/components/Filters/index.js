@@ -15,10 +15,9 @@ function Filter(props) {
       }
 
       fetchData();
-      console.log(genres);
-
 
     }, []);
+
 
     return (
       <FilterArea>
