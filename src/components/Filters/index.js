@@ -7,28 +7,19 @@ function Filter(props) {
 
     const [genres, setGenres] = useState([]);
 
-    useEffect = (() => {
-      loadGenres();
-    })
+    useEffect(() => {
+      const fetchData = async () => {
+        const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR`);
+        const data = await response.json();
+        setGenres(data.genres);
+      }
 
-    const loadGenres = (() => {
-      fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setGenres(data.genres);
-        });
-    })
+      fetchData();
+      console.log(genres);
 
-    /* 
-      fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setGenres(data.genres);
-        });
-    */
-    
+
+    }, []);
+
     return (
       <FilterArea>
         <Container>
@@ -40,11 +31,11 @@ function Filter(props) {
                 ESCOLHA UM GÊNERO
               </Dropdown.Toggle>
               <Dropdown.Menu >  
-                {/*
-                  props.genres.map(genre => (
-                    <Dropdown.Item key={genre.id} onClick={}>{genre.name}</Dropdown.Item>
+                {
+                  genres.map(genre => (
+                    <Dropdown.Item key={genre.id} onClick={props.shoMoviesGenres}>{genre.name}</Dropdown.Item>
                   ))
-                  */}
+                }
               </Dropdown.Menu>
             </DropdownArea>
           </FilterSectionFilters>

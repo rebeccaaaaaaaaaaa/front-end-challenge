@@ -74,6 +74,16 @@ popularMovies = (e) => {
     });
   }
 
+  shoMoviesGenres = (e) => {
+    e.preventDefault();
+    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=pt-BR`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      this.setState({genres: [...data.genres]});
+    });
+  }
+
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
   // setando como nulo significa que é para mostrar o painel - lista de filmes
   closeMovieDetails = () => {
@@ -88,7 +98,7 @@ popularMovies = (e) => {
         <Navbar />
         <main>
           <Header />
-          <Filter popularMovies={this.popularMovies}/>
+          <Filter popularMovies={this.popularMovies} listGenresMovies={this.listGenresMovies}/>
           
           { this.state.currentMovie === null ? 
              // verificação se o filme atual é nulo se for mostra o search, pagination e painel, se n for nulo quer
