@@ -1,5 +1,9 @@
 # Visão Geral
 
+- Esse é um teste desenvolvido para a vaga de frontend da POMOBIT.
+- O objetivo era criar uma aplicação que permitisse listar filmes utilizando uma API externa para listar os filmes mais populares. 
+- Resolvi criar uma forma do usuário poder pesquisar o filme por nome também.
+
 # Funcionalidades
 
 -  O usuário consegue ter acesso a uma listagem dos filmes mais populares do dia
@@ -21,6 +25,10 @@
  - React Icons - Fontawsome - para utilização de icones, como o icone em voltar na página de detalhes do filme
 
 # O que aprendi com esse teste?
+
+ - Fetch data com hooks
+ - Utilização da API do TMDB 
+ - Passar propiedades de um component pai para o filho de forma correta
 
 # Implementações futuras
 

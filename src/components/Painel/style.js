@@ -7,17 +7,11 @@ export const PainelArea = styled.section`
     }
 `;
 
-export const DetailsLink = styled.span`
-    display: block;
-    color: #fff;
-    margin-top: 10px;
+export const MovieCard = styled.div`
     cursor: pointer;
-    background: #5c16c5;
-    padding: 10px;
-    border-radius: 5px; 
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease;
 
     &:hover{
-        background: #2D0C5E;
+        opacity: 0.8;
     }
 `;
