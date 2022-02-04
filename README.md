@@ -63,7 +63,7 @@ Geralmente é considerado cortês copiar as imagens que você deseja usar para s
 
 # Como executar o projeto?
 
-- Após já ter sua API KEY, voce deve substiruir o valor da mesma no .env na raiz do projeto (caso não tenha, basta criar um .env com o seguinte conteúdo: REACT_APP_API_KEY=<<suachaveaqui>> )
+- Após já ter sua API KEY, voce deve substiruir o valor da mesma no .env na raiz do projeto (caso não tenha, basta criar um .env com o seguinte conteúdo: REACT_APP_API_KEY=suachaveaqui )
 
 - Em seguida basta entrar na raiz do projeto e dar o comando npm install para instalar as dependências do projeto
 
