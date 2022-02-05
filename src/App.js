@@ -74,17 +74,6 @@ popularMovies = (e) => {
     });
   }
 
-  shoMoviesGenres = (e) => {
-    e.preventDefault();
-    console.log(e.target.genres);
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&with_genres=878`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      this.setState({movies: [...data.results]});
-    });
-   
-} 
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
   // setando como nulo significa que é para mostrar o painel - lista de filmes
@@ -101,7 +90,6 @@ popularMovies = (e) => {
         <main>
           <Header />
           <Filter popularMovies={this.popularMovies} 
-                  shoMoviesGenres={this.shoMoviesGenres}
                   movies={this.state.movies} 
                   viewMovieDetails={this.viewMovieDetails}/>
           
