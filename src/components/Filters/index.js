@@ -1,47 +1,63 @@
-import React, {useEffect, useState} from 'react';
-import {FilterArea, FilterSectionTitle, FilterSectionFilters, DropdownArea} from './style';
-import Container from 'react-bootstrap/Container';
-import Dropdown from 'react-bootstrap/Dropdown';
+import React, { useEffect, useState } from "react";
+import {
+  FilterArea,
+  FilterSectionTitle,
+  FilterSectionFilters,
+  DropdownArea,
+} from "./style";
+import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
 
-function Filter(props) {
+const Filter = props => {
+  const [genres, setGenres] = useState([]);
 
-    const [genres, setGenres] = useState([]);
+  const handleChange = (e) => {
+    const selectedValue = e.target.value;
+    props.showMoviesGenres(selectedValue);
+    console.log(selectedValue);
+  };
 
-    useEffect(() => {
-      const fetchData = async () => {
-        const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR`);
-        const data = await response.json();
-        setGenres(data.genres);
-      }
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR`
+      );
+      const data = await response.json();
+      setGenres(data.genres);
+    };
 
-      fetchData();
-      console.log(genres);
+    fetchData();
+  }, []);
 
+  return (
+    <FilterArea>
+      <Container>
+        <FilterSectionFilters>
+          <button
+            style={{ marginRight: "15px" }}
+            className="btn btn-primary"
+            onClick={props.popularMovies}
+          >
+            OS MAIS POPULARES
+          </button>
+          <FilterSectionTitle> OU </FilterSectionTitle>
+          <select onChange={handleChange}>
+            <option value="0">Filtrar por gênero</option>
+            {genres.map((genre) => (
+              <option
+                key={genre.id}
+                value={genre.id}
+                onChange={handleChange}
 
-    }, []);
-
-    return (
-      <FilterArea>
-        <Container>
-          <FilterSectionFilters>
-            <button style={{marginRight: '15px'}} className="btn btn-primary" onClick={props.popularMovies}> OS MAIS POPULARES </button>
-            <FilterSectionTitle> OU </FilterSectionTitle>
-            <DropdownArea>
-              <Dropdown.Toggle variant="success" id="dropdown-basic" >
-                ESCOLHA UM GÊNERO
-              </Dropdown.Toggle>
-              <Dropdown.Menu >  
-                {
-                  genres.map(genre => (
-                    <Dropdown.Item key={genre.id} onClick={props.shoMoviesGenres}>{genre.name}</Dropdown.Item>
-                  ))
-                }
-              </Dropdown.Menu>
-            </DropdownArea>
-          </FilterSectionFilters>
-        </Container>
-      </FilterArea>
-    );
+              >
+                {genre.name}
+              </option>
+            ))}
+          </select>
+        </FilterSectionFilters>
+      </Container>
+    </FilterArea>
+  );
 }
 
 export default Filter;

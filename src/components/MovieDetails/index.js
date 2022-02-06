@@ -28,15 +28,17 @@ function MovieDetails(props) {
             <div className="details-more">
               <DetaisList>
                 <li>
+                  Data de lançamento: 
                   <Moment format="D MMM YYYY" withTitle>
                     {props.currentMovie.release_date}
                   </Moment>
                 </li>
-                <li> {props.currentMovie.original_language} </li>
+                <li> Idioma original: {props.currentMovie.original_language} </li>
 
                 <li>
+                  
                   <DetaisAverageArea>
-                  <span> {props.currentMovie.vote_average} </span>
+                  <span> Média de votos: {props.currentMovie.vote_average} </span>
                 </DetaisAverageArea>
                 </li>
               </DetaisList>

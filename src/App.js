@@ -9,11 +9,12 @@ import MovieDetails from "./components/MovieDetails";
 
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
+      selectedValue: props.selectedValue,
       genres: [],
       searchMovie: "",
       totalMovies: 0,
@@ -26,7 +27,10 @@ class App extends Component {
     // ou qualquer outro lugar, por isso coloquei em um arquivo .env
     this.apiKey = process.env.REACT_APP_API_KEY;
 
+    console.log(this.selectedValue);
   }
+
+  // pegar o valor do e.target.value do componente PAINEL e salvar aqui em uma variavel
 
   // ao dar enter no botão de busca, vai realizar a requisão para a API - coloquei no fim da busca para não vir conteúdo adulto
   handleSubmit = (e) => {
@@ -64,25 +68,30 @@ class App extends Component {
   }
 
 popularMovies = (e) => {
-    e.preventDefault();
-    //fetch(`https://api.themoviedb.org/3/search/movie/popular?api_key=${this.apiKey}&language=pt-BR&query=${this.state.searchMovie}&page=1&include_adult=false`)
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=pt-BR&page=1`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
       this.setState({movies: [...data.results]});
     });
+
+    e.preventDefault();
   }
 
-  shoMoviesGenres = (e) => {
-    e.preventDefault();
-    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=pt-BR`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      this.setState({genres: [...data.genres]});
-    });
-  }
+  showMoviesGenres = (selectedValue) => {
+    fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${selectedValue}&language=pt-BR&page=1`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({ movies: [...data.results] });
+      });
+
+      console.log("o id selecionado é:" , selectedValue);
+     
+  };
+
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
   // setando como nulo significa que é para mostrar o painel - lista de filmes
@@ -91,14 +100,19 @@ popularMovies = (e) => {
   }
 
   render() {
-    const numberPages = Math.floor(this.state.totalMovies / 400);
+    const numberPages = Math.floor(this.state.totalMovies / 20);
 
     return (
       <>
+
         <Navbar />
         <main>
           <Header />
-          <Filter popularMovies={this.popularMovies} listGenresMovies={this.listGenresMovies}/>
+          <Filter popularMovies={this.popularMovies} 
+                  movies={this.state.movies} 
+                  genres={this.state.genres} 
+                  showMoviesGenres={this.showMoviesGenres}
+                  viewMovieDetails={this.viewMovieDetails}/>
           
           { this.state.currentMovie === null ? 
              // verificação se o filme atual é nulo se for mostra o search, pagination e painel, se n for nulo quer
@@ -115,7 +129,7 @@ popularMovies = (e) => {
          
           {
              // paginação em baixo da listagem dos filter
-            this.state.totalMovies > 400 && this.state.currentMovie == null ?
+            this.state.totalMovies > 20 && this.state.currentMovie == null ?
             <Pagination pages={numberPages} nextPage={this.nextPage}  currentPage={this.state.currentPage}/> : ''
           }
         </main>

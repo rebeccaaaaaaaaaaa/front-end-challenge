@@ -34,17 +34,16 @@ export const DetaisList = styled.ul`
     margin-bottom: 2rem;
     display: flex;
 
+    
+    @media (max-width: 768px) {
+        display: block;
+    }
+
     li{
         margin-right: 1rem;
+
     }
 `;
 
 export const DetaisAverageArea = styled.div`
-
-    span{
-        background: #1a8209;
-        padding: 7px;
-        border-radius: 50%;
-        border: 2px solid;
-    }
 `;

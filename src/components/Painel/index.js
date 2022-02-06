@@ -20,9 +20,11 @@ function Painel(props){
                   <Card.Img
                     variant="top"
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.name}
-                    title={movie.name}
+                    alt={movie.title}
+                    title={movie.title}
                   />
+
+                  <span> {movie.vote_average} </span>
                 </Card>
                </MovieCard>
               </div>
