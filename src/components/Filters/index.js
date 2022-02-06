@@ -3,10 +3,10 @@ import {
   FilterArea,
   FilterSectionTitle,
   FilterSectionFilters,
-  DropdownArea,
+  Dropdown,
 } from "./style";
 import Container from "react-bootstrap/Container";
-import Dropdown from "react-bootstrap/Dropdown";
+
 
 const Filter = props => {
   const [genres, setGenres] = useState([]);
@@ -41,7 +41,7 @@ const Filter = props => {
             OS MAIS POPULARES
           </button>
           <FilterSectionTitle> OU </FilterSectionTitle>
-          <select onChange={handleChange}>
+          <Dropdown onChange={handleChange}>
             <option value="0">Filtrar por gênero</option>
             {genres.map((genre) => (
               <option
@@ -53,7 +53,7 @@ const Filter = props => {
                 {genre.name}
               </option>
             ))}
-          </select>
+          </Dropdown>
         </FilterSectionFilters>
       </Container>
     </FilterArea>

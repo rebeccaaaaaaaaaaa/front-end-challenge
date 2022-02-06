@@ -1,24 +1,4 @@
 import styled from "styled-components";
-import Dropdown from "react-bootstrap/Dropdown";
-
-export const DropdownArea = styled(Dropdown)`
-  button {
-    background-color: #5c16c5;
-
-    &:hover {
-      background-color: #9350f9;
-      color: #fff;
-    }
-
-    &:focus {
-      background-color: #9350f9;
-    }
-  }
-
-  button[aria-expanded="true"] {
-    background-color: #9350f9 !important;
-  }
-`;
 
 export const FilterArea = styled.section`
     background-color: #2D0C5E;
@@ -53,5 +33,24 @@ export const FilterSectionFilters = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+  }
+`;
+
+export const Dropdown = styled.select`
+
+  height: 40px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #5c16c5;
+  background-color: #5c16c5;
+  color: #fff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  option {
+    text-transform: uppercase;
   }
 `;

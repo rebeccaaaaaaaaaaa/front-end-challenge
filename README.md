@@ -22,6 +22,8 @@
 
 -  O usuário consegue voltar para a página de listagem de filmes com os filtros ainda ativos (nesse nosso caso, o filtro se dá ao nome do filme, se fizermos uma busca por exemplo, por "A nova", sera listados os filmes equivalentes e ao clicar em detalhes de algum deles e depois retornar a lista a mesma busca se mantém)
 
+- O usuário deve conseguir filtrar os filmes listados por gênero
+
 # Tecnologias e ferramentas utilizadas
 
 - Para o desenvolvimento desse teste, utlizei as seguintes tecnologias e ferramentas: 
@@ -40,8 +42,8 @@
 
 # Implementações futuras
 
-- O usuário deve conseguir filtrar os filmes listados por gênero, com a possibilidade de usar mais de um gênero
-- O usuário deve conseguir remover filtros e a listagem deve ser atualizada de acordo com o filtro removido
+- Listagem de filmes por mais de um gênero.
+- Remoção de filtros e a listagem deve ser atualizada de acordo com o filtro removido
 - A página com detalhes de um filme deve possuir uma rota própria e estar preparada para ser indexada em mecanismos de pesquisa
 
 # Como pegar sua API Key no TMDB? 
