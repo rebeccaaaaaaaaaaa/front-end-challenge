@@ -27,7 +27,7 @@ class App extends React.Component {
     // ou qualquer outro lugar, por isso coloquei em um arquivo .env
     this.apiKey = process.env.REACT_APP_API_KEY;
 
-    console.log(this.selectedValue);
+   // console.log(this.selectedValue);
   }
 
   // pegar o valor do e.target.value do componente PAINEL e salvar aqui em uma variavel
@@ -40,7 +40,7 @@ class App extends React.Component {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+       // console.log(data);
         this.setState({
           movies: [...data.results],
           totalMovies: data.total_results,
@@ -61,7 +61,7 @@ class App extends React.Component {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+       // console.log(data);
         this.setState({ movies: [...data.results], currentPage: pageNumber });
       });
   };
@@ -70,7 +70,7 @@ class App extends React.Component {
     const filteredMovie = this.state.movies.filter((movie) => movie.id === id);
     const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null;
     this.setState({ currentMovie: newCurrentMovie });
-    console.log(newCurrentMovie);
+   // console.log(newCurrentMovie);
   };
 
   popularMovies = (e) => {
@@ -79,7 +79,7 @@ class App extends React.Component {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+      //  console.log(data);
         this.setState({ movies: [...data.results] });
       });
   };
@@ -90,7 +90,7 @@ class App extends React.Component {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+       // console.log(data);
         this.setState({ movies: [...data.results] });
       });
 

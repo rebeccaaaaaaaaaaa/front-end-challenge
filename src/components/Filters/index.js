@@ -14,7 +14,7 @@ const Filter = props => {
   const handleChange = (e) => {
     const selectedValue = e.target.value;
     props.showMoviesGenres(selectedValue);
-    console.log(selectedValue);
+   // console.log(selectedValue);
   };
 
   useEffect(() => {
