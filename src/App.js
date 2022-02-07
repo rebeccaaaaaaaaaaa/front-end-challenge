@@ -84,7 +84,7 @@ class App extends React.Component {
       });
   };
 
-  showMoviesGenres = (selectedValue, e) => {
+  showMoviesGenres = (selectedValue) => {
     fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${selectedValue}&language=pt-BR&page=1`
     )
