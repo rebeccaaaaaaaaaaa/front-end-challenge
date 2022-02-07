@@ -94,7 +94,7 @@ class App extends React.Component {
         this.setState({ movies: [...data.results] });
       });
 
-    console.log("o id selecionado é:", selectedValue);
+   // console.log("o id selecionado é:", selectedValue);
   };
 
   // fechar o detalhe do file pegando o filme atual l e setando  como nulo
