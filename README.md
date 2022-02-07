@@ -11,6 +11,11 @@
 - [Demonstração Filmes Lista]()
 
 
+# Ajustes pendentes
+
+- Quando um genêro é selecionado, a páginação não aparece, porém quando é feito a busca por um filme pelo input e depois um genêro é selecionado, a páginação volta a aparecer. 
+
+
 # Recursos intelectuais utilizados
 
 - [Documentação do React](https://pt-br.reactjs.org/docs/getting-started.html)
